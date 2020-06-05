@@ -12,46 +12,40 @@ import java.util.Date;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "blog_account")
+@Table(name = "blog_article")
 @Entity
-public class Account {
+public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     /**
-     * 账户Id
+     * 博文Id
      */
     @Column(nullable = false)
     private Long id;
     /**
-     * 姓名
+     * 博文题目
      */
     @Column(nullable = false)
-    private String name;
+    private String title;
     /**
-     * 密码哈希值
+     * 博文内容
      */
     @Column(nullable = false)
-    private String passwordHash;
+    private String content;
     /**
-     * 电话号码
+     * 发布人
      */
     @Column(nullable = false)
-    private String phoneNumber;
+    private Long publish_user;
     /**
-     * email
+     * 点赞数量
      */
     @Column(nullable = false)
-    private String email;
-    /**
-     * 图片
-     */
-    @Lob
-    @Basic
-    private byte[] photo;
+    private Long stars;
     /**
      * 创建时间
      */
-    @Column(nullable = false, updatable = false)
+    @Column(nullable = false,updatable = false)
     @CreationTimestamp
     private Date createTime;
     /**

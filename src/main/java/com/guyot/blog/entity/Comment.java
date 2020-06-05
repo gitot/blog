@@ -1,5 +1,6 @@
 package com.guyot.blog.entity;
 
+
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -12,46 +13,45 @@ import java.util.Date;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "blog_account")
+@Table(name = "blog_comment")
 @Entity
-public class Account {
+public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     /**
-     * 账户Id
+     * 评论id
      */
     @Column(nullable = false)
     private Long id;
     /**
-     * 姓名
+     * 内容
      */
     @Column(nullable = false)
-    private String name;
+    private String content;
     /**
-     * 密码哈希值
+     * 评论人
      */
     @Column(nullable = false)
-    private String passwordHash;
+    private Long commentUser;
     /**
-     * 电话号码
+     * 点赞数
      */
     @Column(nullable = false)
-    private String phoneNumber;
+    private Long stars;
     /**
-     * email
+     * 所属文章id
      */
     @Column(nullable = false)
-    private String email;
+    private Long articleId;
     /**
-     * 图片
+     * 所属评论id。若直接对文章评论，此值为 null
      */
-    @Lob
-    @Basic
-    private byte[] photo;
+    @Column
+    private Long commentId;
     /**
      * 创建时间
      */
-    @Column(nullable = false, updatable = false)
+    @Column(nullable = false,updatable = false)
     @CreationTimestamp
     private Date createTime;
     /**
