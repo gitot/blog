@@ -1,22 +1,20 @@
 package com.guyot.blog.repository;
 
-import com.guyot.blog.App;
+import com.guyot.blog.BlogSystemApp;
 import com.guyot.blog.entity.Account;
 import com.guyot.blog.entity.Article;
 import com.guyot.blog.entity.Comment;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = {App.class},
+@SpringBootTest(classes = {BlogSystemApp.class},
         webEnvironment = SpringBootTest.WebEnvironment.NONE)
 public class AccountDaoTest {
 
