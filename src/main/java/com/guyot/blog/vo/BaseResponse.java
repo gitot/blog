@@ -1,8 +1,11 @@
 package com.guyot.blog.vo;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 /**
  * Base response message to be returned to the client.
  */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class BaseResponse {
     private int code;
     private String msg;
