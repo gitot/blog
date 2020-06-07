@@ -23,9 +23,13 @@ public class Account {
     @Column(nullable = false)
     private Long id;
     /**
-     * 姓名
+     * 用户名
      */
     @Column(nullable = false)
+    private String username;
+    /**
+     * 姓名
+     */
     private String name;
     /**
      * 密码哈希值

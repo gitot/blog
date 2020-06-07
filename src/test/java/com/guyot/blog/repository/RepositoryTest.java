@@ -4,19 +4,15 @@ import com.guyot.blog.BlogSystemApp;
 import com.guyot.blog.entity.Account;
 import com.guyot.blog.entity.Article;
 import com.guyot.blog.entity.Comment;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest(classes = {BlogSystemApp.class},
         webEnvironment = SpringBootTest.WebEnvironment.NONE)
-public class AccountDaoTest {
+public class RepositoryTest {
 
     @Autowired
     private AccountDao accountDao;
@@ -25,23 +21,12 @@ public class AccountDaoTest {
     @Autowired
     private CommentDao commentDao;
 
-    @Test
-    public void test_add_a_account() {
-        Account account = Account.builder()
-                .name("guyot")
-                .email("1571337712@qq.com")
-                .build();
-        accountDao.save(account);
-        assertEquals(1L, accountDao.count());
-    }
-
-
 
     @Test
     public void test_add_a_record_in_each_table() {
         accountDao.deleteAll();
         Account account = Account.builder()
-                .name("guyot")
+                .username("guyot")
                 .phoneNumber("15001919175")
                 .email("1571337712@qq.com")
                 .passwordHash("tbagonbjf546bsgj")
@@ -68,6 +53,5 @@ public class AccountDaoTest {
                 .build();
         commentDao.save(comment);
         assertEquals(1L, commentDao.count());
-
     }
 }
